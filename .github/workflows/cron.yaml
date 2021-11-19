@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Run our harvest routine
         run: |
-          curl --request POST \
+          curl --request GET \
           --url '${{ secrets.HARVEST_URI }}' \
           --header 'Authorization: Basic ${{ secrets.BASIC_AUTH }}'
 
