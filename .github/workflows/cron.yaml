@@ -1,0 +1,14 @@
+name: 5-minute-cron
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run our harvest routine
+        run: |
+          curl --request POST \
+          --url '${{ secrets.HARVEST_URI }}' \
+          --header 'Authorization: Basic ${{ secrets.BASIC_AUTH }}'
+
